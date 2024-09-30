@@ -236,6 +236,16 @@ static uint64_t get_nanotime()
 #define BREAK_INST_BYTES_SIZE 4
 #define BREAK_INST_INST_PTR_ADJUST 4
 
+#elif defined(__powerpc64__)
+
+#define user_regs_struct struct pt_regs
+
+#define INST_PTR_REG nip
+
+#define BREAK_INST 0x0800e07fULL
+#define BREAK_INST_BYTES_SIZE 4
+#define BREAK_INST_INST_PTR_ADJUST 4
+
 #else
 
 #define BREAK_INST 0xccULL
